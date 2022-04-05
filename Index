@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,11 +29,59 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mt-5 mb-3 clearfix">
-                    <h2 class="pull-left">Cadastro de Vendas</h2>      <br> <br> <br>
-                    <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Vender</a>   <td></td>
-                    <a href="Search.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Pesquisar Produto</a>  <td></td>
-                    <a href="Search.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Pesquisar Cliente</a> <td></td>
-                </div>
+                    <h2 class="pull-left">Cadastro de Vendas</h2><br><br><br>  
+                   
+                    <div>
+                    <form method="POST" action="ProcurarComprador.php">
+                    Cliente CNPJ                      
+                        <input type="search" id="txtBuscaCompradorCNPJ" placeholder="CNPJ Comprador"/>  <br> <br> 
+                    Nome Cliente CNPJ <input type="text" name="pesquisar" placeholder="CNPJ Comprador" >
+                    <br> <br>   <input type="submit" value="Procurar">
+                    </form>
+
+ 
+                    </div>
+                    <hr size="50">
+                    <br><br>
+                     
+                   
+                    <table border="0">
+                <tr>
+                    Produto
+                      <input type="text" id="txtBuscaProduto" placeholder="Produto"/></td>
+                    Quantidade
+                      <input type="text" id="txtBuscaProduto" placeholder="Quantidade"/></td><br><br>
+                    Desconto
+                      <input type="text" id="txtBuscaProduto" placeholder="Desconto em %"/> </td>
+                </tr>
+                <tr>
+                    Descrição
+                        <input type="text" id="txtBuscaProduto" placeholder="Descrição do produto"/> </td></br><br> 
+                    Valor
+                        <input type="text" id="txtBuscaProduto" placeholder="Valor do produto"/> </td><br><br>
+                    R$ Desconto
+                        <input type="text" id="txtBuscaProduto" placeholder="Desconto em R$"/> </td>
+                </tr>
+                </table>
+
+                   
+                    </div>
+                    
+                    <a href="PesquisarProduto.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Pesquisar Produto</a>  <td></td>
+                    <br><br>  
+                    
+                    <a href="Vender.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Vender</a> <td></td>
+                    <br><br> 
+                    </td>
+                    <a href="AdicionarProduto.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Adicionar</a> <td></td>
+                 
+                    </br>
+                    <hr size="50">
+                    <br><br>
+            </div>
+            
+
+            </div>
                 <?php
                 // Inclui arquivo config
                 require_once "config.php";
@@ -58,7 +106,7 @@
                         while($row = mysqli_fetch_array($result)){
                             echo "<tr>";
                             echo "<td>" . $row['VendaID'] . "</td>";
-                            echo "<td>" . $row['Produto'] . "</td>";
+                            echo "<td>" . $row['ProdutoID'] . "</td>";
                             echo "<td>" . $row['Valor'] . "</td>";
                             echo "<td>" . $row['Quantidade'] . "</td>";
                             echo "<td>" . $row['DataCriacao'] . "</td>";
