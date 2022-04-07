@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,13 @@
         table tr td:last-child{
             width: 120px;
         }
+        <?php echo $pesquisarNome = $_GET['pesquisarNome']; ?>
+        <?php echo $pesquisarCNPJ = $_GET['pesquisarCNPJ']; ?>
+        <?php echo $pesquisarProduto = $_GET['pesquisarProduto']; ?>
+        <?php echo $QntProduto = $_GET['Quantidade']; ?>
+        <?php echo $Valor = $_GET['Valor']; ?>
+        <?php echo $ValorUnit = $_GET['ValorUnit']; ?>
+        <?php echo $Descricao = $_GET['Descricao']; ?>
     </style>
     <script>
         $(document).ready(function(){
@@ -30,12 +37,12 @@
             <div class="col-md-12">
                 <div class="mt-5 mb-3 clearfix">
                     <h2 class="pull-left">Cadastro de Vendas</h2><br><br><br>  
-                   
+                    
                     <div>
                     <form method="POST" action="ProcurarComprador.php">
                     Cliente CNPJ                      
-                        <input type="search" id="txtBuscaCompradorCNPJ" placeholder="CNPJ Comprador"/>  <br> <br> 
-                    Nome Cliente CNPJ <input type="text" name="pesquisar" placeholder="CNPJ Comprador" >
+                        <input type="text"  name="pesquisarCNPJ"  placeholder="CNPJ Comprador" value= <?php echo $pesquisarCNPJ ?>  >  <br> <br> 
+                    Nome Cliente <input type="text" name="pesquisarNome" placeholder="Nome do Comprador" value= <?php echo $pesquisarNome ?> >
                     <br> <br>   <input type="submit" value="Procurar">
                     </form>
 
@@ -47,29 +54,28 @@
                    
                     <table border="0">
                 <tr>
+                <form method="POST" action="ProcurarProduto.php?pesquisarNome=<?php echo $pesquisarNome ?>&pesquisarCNPJ=<?php echo $pesquisarCNPJ ?>& ">
                     Produto
-                      <input type="text" id="txtBuscaProduto" placeholder="Produto"/></td>
-                    Quantidade
-                      <input type="text" id="txtBuscaProduto" placeholder="Quantidade"/></td><br><br>
-                    Desconto
-                      <input type="text" id="txtBuscaProduto" placeholder="Desconto em %"/> </td>
+                    <input type="text" name="pesquisarProduto" placeholder="Nome do Produto" value= <?php echo $pesquisarProduto ?> ><td></td><input type="submit" value="Procurar"> 
+                </form>
+                  <br> <br><br> Quantidade
+                      <input type="text" id="txtBuscaProduto" placeholder="Quantidade" value= <?php echo $QntProduto ?>></td><br><br>
+                    Desconto em %
+                      <input type="text" id="txtBuscaProduto" placeholder="Desconto em %"value= <?php echo ($Valor-$ValorUnit)/100 ?> > </td></td>
                 </tr>
-                <tr>
+                <tr><br><br>
                     Descrição
-                        <input type="text" id="txtBuscaProduto" placeholder="Descrição do produto"/> </td></br><br> 
+                        <input type="text" id="txtBuscaProduto" placeholder="Descrição do produto"value= <?php echo $Descricao ?>  > </td></br><br> 
                     Valor
-                        <input type="text" id="txtBuscaProduto" placeholder="Valor do produto"/> </td><br><br>
+                        <input type="text" id="txtBuscaProduto" placeholder="Valor do produto" value= <?php echo $Valor ?> > </td><br><br>
                     R$ Desconto
-                        <input type="text" id="txtBuscaProduto" placeholder="Desconto em R$"/> </td>
+                        <input type="text" id="txtBuscaProduto" placeholder="Desconto em R$" value= <?php echo $Valor-$ValorUnit ?>    > </td>
                 </tr>
                 </table>
 
                    
                     </div>
-                    
-                    <a href="PesquisarProduto.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Pesquisar Produto</a>  <td></td>
-                    <br><br>  
-                    
+   
                     <a href="Vender.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Vender</a> <td></td>
                     <br><br> 
                     </td>
