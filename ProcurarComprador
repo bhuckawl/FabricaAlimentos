@@ -1,7 +1,8 @@
 <?php
      require_once "config.php";
-     $pesquisar = $_POST['pesquisar'];
-     $result_cursos = "SELECT * FROM Compradores WHERE Nome LIKE '%$pesquisar%' LIMIT 5";
+     $pesquisarNome = $_POST['pesquisarNome'];
+     $pesquisarCNPJ = $_POST['pesquisarCNPJ'];
+     $result_cursos = "SELECT * FROM Compradores WHERE Nome LIKE '%$pesquisarNome%' AND  Cnpj LIKE  '%$pesquisarCNPJ%'  LIMIT 5";
      $resultado_cursos = mysqli_query($link, $result_cursos);
  
     // Include config file
@@ -21,12 +22,13 @@
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 
                 // Retrieve individual field value
-                $name = $row["Nome"];
+                $pesquisarNome = $row["Nome"];
+                $pesquisarCNPJ = $row["Cnpj"];
               
             } else{
               
                 // URL doesn't contain valid id parameter. Redirect to error page
-                header("location: error.php");
+                header("location: errorCNPJ.php");
                 exit();
             }
             
@@ -41,6 +43,7 @@
     
     // Close connection
     mysqli_close($link);
+    
  
 ?>
 
@@ -91,7 +94,7 @@
                         <label>Situação</label>
                         <p><b><?php echo $row["Situação"]; ?></b></p>
                     </div>
-                    <p><a href="index.php?<?php echo $pesquisar; ?>" class="btn btn-primary">Back</a></p>
+                    <p><a href="index.php?pesquisarNome=<?php echo $pesquisarNome; ?>&pesquisarCNPJ=<?php echo $pesquisarCNPJ; ?>" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
