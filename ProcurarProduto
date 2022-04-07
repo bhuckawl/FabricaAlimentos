@@ -1,10 +1,10 @@
 <?php
      require_once "config.php";
      $pesquisarProduto = $_POST['pesquisarProduto'];
-     $pesquisarNome = $_POST['pesquisarNome'];
-     $pesquisarCNPJ = $_POST['pesquisarCNPJ'];
-    
-   
+     $pesquisarNome = $_GET['pesquisarNome'];
+     $pesquisarCNPJ = $_GET['pesquisarCNPJ']; 
+     
+  
     echo "Produto encontrado!";
 
      $result_cursos = "SELECT * FROM Produtos WHERE Nome LIKE '%$pesquisarProduto%'  LIMIT 5";
