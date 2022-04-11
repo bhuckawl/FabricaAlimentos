@@ -72,7 +72,7 @@
 <body>
     
          
-<p><a href="index.php?pesquisarProduto=<?php echo $pesquisarProduto; ?>&Quantidade=<?php echo $QntProduto; ?>&Valor=<?php echo $Valor; ?>&Descricao=<?php echo $DescProduto; ?>&ValorUnit=<?php echo $ValUnit; ?>&pesquisarNome=<?php echo $pesquisarNome; ?>&pesquisarCNPJ=<?php echo $pesquisarCNPJ; ?>" class="btn btn-primary">Back</a></p>
+<p><a href="HistoricoDeVendas.php?pesquisarProduto=<?php echo $pesquisarProduto; ?>&Quantidade=<?php echo $QntProduto; ?>&Valor=<?php echo $Valor; ?>&Descricao=<?php echo $DescProduto; ?>&ValorUnit=<?php echo $ValUnit; ?>&pesquisarNome=<?php echo $pesquisarNome; ?>&pesquisarCNPJ=<?php echo $pesquisarCNPJ; ?>" class="btn btn-primary">Back</a></p>
                     
               
    
